@@ -482,7 +482,7 @@ class COCOeval:
             average_stats= sum_stats/n
             print(f'Mean average precission (Validation Index) --> {average_stats:.2f}')        
             
-            return stats , average_stats
+            return stats 
         
         def _summarizeKps():
             stats = np.zeros((10,))
@@ -501,7 +501,7 @@ class COCOeval:
             raise Exception('Please run accumulate() first')
         iouType = self.params.iouType
         if iouType == 'segm' or iouType == 'bbox':
-            summarize, average_stats = _summarizeDets
+            summarize = _summarizeDets
         elif iouType == 'keypoints':
             summarize = _summarizeKps
         self.stats = summarize()
