@@ -471,11 +471,19 @@ class COCOeval:
             stats[11] = _summarize(0, areaRng='large', maxDets=self.params.maxDets[2])
             
             # AÑADIDO
-            average_stats = (stats[0] + stats[1] + stats[2] + stats[3] + stats[4] + stats[5])/6
-            print(average_stats)
+            for i in range(6)
+                n=6
+                sum_stats=0
+                if stats[i] <0:
+                    n-=1
+                else:
+                    sum_stats = stats[i]
             
+            average_stats= sum_stats/n
+            print(f'Mean average precission (Validation Index) --> {average_stats:.2f}')        
             
-            return stats
+            return stats , average_stats
+        
         def _summarizeKps():
             stats = np.zeros((10,))
             stats[0] = _summarize(1, maxDets=20)
@@ -493,7 +501,7 @@ class COCOeval:
             raise Exception('Please run accumulate() first')
         iouType = self.params.iouType
         if iouType == 'segm' or iouType == 'bbox':
-            summarize = _summarizeDets
+            summarize, average_stats = _summarizeDets
         elif iouType == 'keypoints':
             summarize = _summarizeKps
         self.stats = summarize()
