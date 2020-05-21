@@ -507,9 +507,10 @@ class COCOeval:
         return self.stats
 
     def __str__(self):
-        self.summarize()
-        
-    return self.stats
+        self.summarize() 
+        self.stats=self.summarize() 
+        print(self.stats)
+        return self.stats
 
 class Params:
     '''
