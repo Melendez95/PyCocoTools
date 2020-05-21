@@ -480,7 +480,7 @@ class COCOeval:
                     sum_stats = stats[i]
 
             average_stats= sum_stats/n
-            print(f'\nMean average precission (Validation Index) --> {average_stats:.4f}')
+            print(f'\nMean average precission (Validation Index) --> {average_stats:.3f}')
             
             return stats 
         
