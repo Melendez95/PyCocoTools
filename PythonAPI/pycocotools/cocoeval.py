@@ -471,16 +471,17 @@ class COCOeval:
             stats[11] = _summarize(0, areaRng='large', maxDets=self.params.maxDets[2]   
                                    
      
-            for i in range(6):
-                n=6
-                sum_stats=0
-                if stats[i] <0:
-                    n-=1
-                else:
-                    sum_stats = stats[i]
+            #for i in range(6):
+               # n=6
+               # sum_stats=0
+               # if stats[i] <0:
+               #     n-=1
+               # else:
+                  #  sum_stats = stats[i]
 
-            average_stats= sum_stats/n
-            print(f'Mean average precission (Validation Index) --> {average_stats:.3f}')
+           # average_stats= sum_stats/n
+            #print(f'Mean average precission (Validation Index) --> {average_stats:.3f}')
+            print("Hola")
             
             return stats 
         
