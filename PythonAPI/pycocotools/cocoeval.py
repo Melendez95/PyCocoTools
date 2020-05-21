@@ -501,10 +501,10 @@ class COCOeval:
         iouType = self.params.iouType
         if iouType == 'segm' or iouType == 'bbox':
             summarize = _summarizeDets
-            print(summarize)
         elif iouType == 'keypoints':
             summarize = _summarizeKps
         self.stats = summarize()
+        print(self.stats)
 
     def __str__(self):
         self.summarize()
