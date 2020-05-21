@@ -481,7 +481,7 @@ class COCOeval:
             average_stats = sum_stats/n
             print(f"\n Mean Average Precission (Validation index) --> {average_stats}\n")
                 
-            return stats
+            return stats, average_stats
         
         def _summarizeKps():
             stats = np.zeros((10,))
