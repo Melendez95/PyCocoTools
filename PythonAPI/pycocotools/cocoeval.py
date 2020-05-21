@@ -479,7 +479,7 @@ class COCOeval:
                 sum_stats = stats[i]
              
             average_stats = sum_stats/n
-            print(f"\n Mean Average Precission (Validation index) --> {average_stats}\n")
+            print(f"\n Mean Average Precission (Validation index) --> {average_stats:.4f}\n")
                 
             return stats, average_stats
         
@@ -508,9 +508,7 @@ class COCOeval:
 
     def __str__(self):
         self.summarize() 
-        self.stats=self.summarize() 
-        print(self.stats)
-        return self.stats
+
 
 class Params:
     '''
