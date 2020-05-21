@@ -468,19 +468,7 @@ class COCOeval:
             stats[8] = _summarize(0, maxDets=self.params.maxDets[2])
             stats[9] = _summarize(0, areaRng='small', maxDets=self.params.maxDets[2])
             stats[10] = _summarize(0, areaRng='medium', maxDets=self.params.maxDets[2])
-            stats[11] = _summarize(0, areaRng='large', maxDets=self.params.maxDets[2])
-            
-            # AÑADIDO
-            for i in range(6):
-                n=6
-                sum_stats=0
-                if stats[i] <0:
-                    n-=1
-                else:
-                    sum_stats = stats[i]
-            
-            average_stats= sum_stats/n
-            print(f'\nMean average precission (Validation Index) --> {average_stats:.4f}')        
+            stats[11] = _summarize(0, areaRng='large', maxDets=self.params.maxDets[2]   
             
             return stats 
         
@@ -504,11 +492,33 @@ class COCOeval:
             summarize = _summarizeDets
         elif iouType == 'keypoints':
             summarize = _summarizeKps
-        self.stats = summarize()    
+        self.stats = summarize()                                
+
  
 
     def __str__(self):
         self.summarize()
+
+    #######################################################################
+    ###################### AÑADIDO ########################################
+    #######################################################################   
+                                   
+    def validation(self,stats)
+
+        for i in range(6):
+            n=6
+            sum_stats=0
+            if stats[i] <0:
+                n-=1
+            else:
+                sum_stats = stats[i]
+
+        average_stats= sum_stats/n
+        print(f'\nMean average precission (Validation Index) --> {average_stats:.4f}')
+
+       return average_stats   
+                                   
+    #####################################################################
 
 class Params:
     '''
