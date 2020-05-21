@@ -480,7 +480,7 @@ class COCOeval:
                     sum_stats = stats[i]
             
             average_stats= sum_stats/n
-            print(f'Mean average precission (Validation Index) --> {average_stats:.4f}')        
+            print(f'\nMean average precission (Validation Index) --> {average_stats:.4f}')        
             
             return stats 
         
@@ -504,7 +504,8 @@ class COCOeval:
             summarize = _summarizeDets
         elif iouType == 'keypoints':
             summarize = _summarizeKps
-        self.stats = summarize()
+        self.stats = summarize()    
+ 
 
     def __str__(self):
         self.summarize()
