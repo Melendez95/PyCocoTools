@@ -469,7 +469,17 @@ class COCOeval:
             stats[9] = _summarize(0, areaRng='small', maxDets=self.params.maxDets[2])
             stats[10] = _summarize(0, areaRng='medium', maxDets=self.params.maxDets[2])
             stats[11] = _summarize(0, areaRng='large', maxDets=self.params.maxDets[2])
+            
+            for i in range(6):
+               n=6
+               sum_stats=0
+               if stats[i] <0:
+                n-=1
+               else:
+                sum_stats = stats[i]
+                
             return stats
+        
         def _summarizeKps():
             stats = np.zeros((10,))
             stats[0] = _summarize(1, maxDets=20)
