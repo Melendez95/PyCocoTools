@@ -470,9 +470,9 @@ class COCOeval:
             stats[10] = _summarize(0, areaRng='medium', maxDets=self.params.maxDets[2])
             stats[11] = _summarize(0, areaRng='large', maxDets=self.params.maxDets[2])
             
+            n=6
+            sum_stats=0
             for i in range(6):
-               n=6
-               sum_stats=0
                if stats[i] <0:
                 n-=1
                else:
